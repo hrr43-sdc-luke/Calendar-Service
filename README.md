@@ -1,32 +1,13 @@
-# Project Name
+# AirBnB Experiences Calendar API
 
-> Project description
+## API Endpoints
 
-## Related Projects
-
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-
-## Table of Contents
-
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
-
-## Usage
-
-> Some usage instructions
-
-## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- etc
-
-## Development
+> |       ENDPOINTS        |   TYPE   |         OPERATION          |
+> |  --------------------  | -------  |  ------------------------  |
+> |      /calendar/:id     |  GET     |  retrieves an experience   |
+> |      /calendar/        |  POST    |  creates an experience     |
+> |      /calendar/:id     |  PUT     |  updates an experience     |
+> |      /calendar/:id     |  DELETE  |  deletes an experience     |
 
 ### Installing Dependencies
 
@@ -34,9 +15,15 @@ From within the root directory:
 
 ```sh
 npm install
+sudo service mongodb start
 npm run seed
 npm run react-dev
 npm server-dev
 ```
-The proxy-html set the name of the div to: "calendar".
-Add this to the proxy-html: <script src="http://localhost:3005/bundle.js"></script>
+
+## Related Projects
+
+  - https://github.com/hrr43-sdc-luke/Media-Carousel-Service
+  - https://github.com/hrr43-sdc-luke/Photo-Gallery-Service
+  - https://github.com/hrr43-sdc-luke/Calendar-Service
+  - https://github.com/hrr43-sdc-luke/Reviews-Service
