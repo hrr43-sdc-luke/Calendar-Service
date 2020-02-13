@@ -8,8 +8,8 @@
   },
   "scripts": {
     "seed": "node database/seed.js",
-    "react-dev": "webpack -d --watch",
-    "server-dev": "nodemon server/index.js",
+    "build": "webpack -d --watch",
+    "start": "nodemon server/index.js",
     "test": "jest --updateSnapshot --coverage"
   },
   "dependencies": {
@@ -46,9 +46,10 @@
     "eslint": "^6.1.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
-    "eslint-plugin-import": "^2.20.0",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.18.0",
+    "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-react-hooks": "^1.7.0",
     "faker": "^4.1.0",
     "jest": "^25.1.0",
