@@ -2,12 +2,12 @@
 
 ## API Endpoints
 
-> |       ENDPOINTS        |   TYPE   |         OPERATION          |
-> |  --------------------  | -------  |  ------------------------  |
-> |      /calendar/:id     |  GET     |  retrieves an experience   |
-> |      /calendar/        |  POST    |  creates an experience     |
-> |      /calendar/:id     |  PUT     |  updates an experience     |
-> |      /calendar/:id     |  DELETE  |  deletes an experience     |
+ |       ENDPOINTS        |   TYPE   |         OPERATION          |
+ |  --------------------  | -------  |  ------------------------  |
+ |      /calendar/:id     |  GET     |  retrieves an experience   |
+ |      /calendar/        |  POST    |  creates an experience     |
+ |      /calendar/:id     |  PUT     |  updates an experience     |
+ |      /calendar/:id     |  DELETE  |  deletes an experience     |
 
 ### Installing Dependencies
 
