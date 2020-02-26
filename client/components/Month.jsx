@@ -1,7 +1,9 @@
+/* eslint-disable no-nested-ternary */
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import shortid from 'shortid';
 import Row from './Row.jsx';
+
 
 const Mnth = styled.div`
   display; flex;
@@ -15,21 +17,20 @@ const Mnth = styled.div`
 const Month = ({ month }) => (
   <Mnth>
     <table>
-      <caption>{
-      month.month === 1 ? "February":
-      month.month === 2 ? "March":
-      month.month === 3 ? "April":
-      month.month === 4 ? "May":
-      month.month === 5 ? "June": "July"
-      }</caption>
+      <caption>
+        {
+      month.month === 1 ? 'February'
+        : month.month === 2 ? 'March'
+          : month.month === 3 ? 'April'
+            : month.month === 4 ? 'May'
+              : month.month === 5 ? 'June' : 'July'
+      }
+      </caption>
       <tbody>
-        {month.days.map((row) =>
-          <Row days = {row} />
-        )}
+        {month.days.map((row) => <Row days={row} key={shortid.generate()} />)}
       </tbody>
     </table>
   </Mnth>
 );
 
 export default Month;
-

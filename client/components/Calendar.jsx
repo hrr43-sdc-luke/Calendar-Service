@@ -15,7 +15,7 @@ flex-flow: row;
 
 const Calendar = ({ months }) => (
   <Slider>
-    {months.map((month) => <Month month={month} />)}
+    {months.map((month, index) => <Month month={month} key={index}/>)}
   </Slider>
 );
 
