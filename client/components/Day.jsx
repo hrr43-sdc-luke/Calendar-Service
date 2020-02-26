@@ -2,6 +2,8 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import PropTypes from 'prop-types';
+import shortid from 'shortid';
+
 
 const rotate = keyframes`
 from {

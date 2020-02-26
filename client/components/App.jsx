@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
+import shortid from 'shortid';
 import Calendar from './Calendar.jsx';
 
 
@@ -130,7 +131,7 @@ class App extends Component {
           <Wrapper>
 
             <Slider id="Slider">
-              <Calendar months={months} />
+              <Calendar months={months} key={shortid.generate()} />
             </Slider>
 
           </Wrapper>
