@@ -1,6 +1,9 @@
+/* eslint-disable no-nested-ternary */
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import PropTypes from 'prop-types';
+import shortid from 'shortid';
+
 
 const rotate = keyframes`
 from {
@@ -36,17 +39,15 @@ const No = styled.div`
 
 const Day = ({ day, morning, lunch }) => (
   <div>
-    { day ?
-        morning || lunch? <Yes> {day} </Yes>:<No>{day}</No>: ''
-    }
+    { day
+      ? morning || lunch ? (
+        <Yes>
+          {' '}
+          {day}
+          {' '}
+        </Yes>
+      ) : <No>{day}</No> : ''}
   </div>
 );
-
-Day.propTypes = {
-  day: PropTypes.string.isRequired,
-  morning: PropTypes.bool.isRequired,
-  lunch: PropTypes.bool.isRequired,
-
-};
 
 export default Day;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
+import shortid from 'shortid';
 import Calendar from './Calendar.jsx';
 
 
@@ -76,7 +77,6 @@ class App extends Component {
     super(props);
     this.state = {
       months: [],
-      expId: props.expId,
       slide: 0,
     };
     this.nextSlide = this.nextSlide.bind(this);
@@ -84,9 +84,8 @@ class App extends Component {
   }
 
 
-
   componentDidMount() {
-    const { expId } = this.state;
+    const { expId } = this.props;
     axios.get(`/calendar/${expId}`)
       .then((res) => {
         this.setState({
@@ -97,30 +96,27 @@ class App extends Component {
         console.log('ERROR from axios get request: ', err);
       });
   }
+
   // buttons are visible depending on the state
-  nextSlide () {
+  nextSlide() {
     const { slide } = this.state;
     this.setState({
       slide: slide + 1,
-    })
-    console.log(this.state.slide);
-    let element = document.getElementById('Slider');
-    let left = getComputedStyle(element).getPropertyValue("left");
-    console.log(left);
-    let leftNew = Number(left.substring(0,left.length - 2)) - 200 + "px";
+    });
+    const element = document.getElementById('Slider');
+    const left = getComputedStyle(element).getPropertyValue('left');
+    const leftNew = `${Number(left.substring(0, left.length - 2)) - 200}px`;
     element.style.left = leftNew;
   }
 
-  prevSlide () {
+  prevSlide() {
     const { slide } = this.state;
     this.setState({
       slide: slide - 1,
-    })
-    console.log(this.state.slide);
-    let element = document.getElementById('Slider');
-    let left = getComputedStyle(element).getPropertyValue("left");
-    console.log(left);
-    let leftNew = Number(left.substring(0,left.length - 2)) + 200 + "px";
+    });
+    const element = document.getElementById('Slider');
+    const left = getComputedStyle(element).getPropertyValue('left');
+    const leftNew = `${Number(left.substring(0, left.length - 2)) + 200}px`;
     element.style.left = leftNew;
   }
 
@@ -131,23 +127,19 @@ class App extends Component {
       <CalendarArea>
         <Header>Availability</Header>
         <WrapperMain>
-          <W>{slide !== 0 ? <BtnPrev type="submit" onClick={this.prevSlide}>&#60;</BtnPrev> : <div></div>}</W>
-        <Wrapper>
+          <W>{slide !== 0 ? <BtnPrev type="submit" onClick={this.prevSlide}>&#60;</BtnPrev> : <div />}</W>
+          <Wrapper>
 
-          <Slider id="Slider">
-            <Calendar months={months} />
-          </Slider>
+            <Slider id="Slider">
+              <Calendar months={months} key={shortid.generate()} />
+            </Slider>
 
-        </Wrapper>
-        {slide !== 2 ? <BtnNext type="submit" onClick={this.nextSlide}>&#62;</BtnNext> : <div></div>}
+          </Wrapper>
+          {slide !== 2 ? <BtnNext type="submit" onClick={this.nextSlide}>&#62;</BtnNext> : <div />}
         </WrapperMain>
       </CalendarArea>
     );
   }
 }
-
-App.propTypes = {
-  expId: PropTypes.number,
-};
 
 export default App;

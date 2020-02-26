@@ -1,7 +1,7 @@
 // the whole Calendar area for 6 months
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import shortid from 'shortid';
 import Month from './Month.jsx';
 
 const Slider = styled.div`
@@ -15,7 +15,7 @@ flex-flow: row;
 
 const Calendar = ({ months }) => (
   <Slider>
-    {months.map((month) => <Month month={month} />)}
+    {months.map((month) => <Month month={month} key={shortid.generate()} />)}
   </Slider>
 );
 

@@ -25,3 +25,5 @@ config/
 node_modules
 public/calendar-bundle.js
 public/bundle.js
+.env
+tenMillionRecs.csv
