@@ -1,5 +1,7 @@
+const path = require('path');
+const compression = require('compression');
 const express = require('express');
-const bp = require('body-parser');
+const cors = require('cors');
 const ejs = require('ejs');
 const db = require('../database/index');
 const dataTransformer = require('./dataTransformer');
@@ -8,9 +10,15 @@ const port = 3005;
 
 const app = express();
 
+
+app.use(cors());
 app.use(express.static('public'));
-app.use(bp.json());
+app.use(express.json());
+app.use(compression());
+app.use('/', express.static(path.join(`${__dirname}/public/`)));
+
 app.engine('html', ejs.renderFile);
+
 
 app.get('/:id', (req, res) => {
   res.render('../public/index.html');
@@ -25,22 +33,10 @@ app.get('/calendar/:id/', (req, res) => {
     });
 });
 
-app.listen(port, () => { console.log(`Listening on port ${port}`); });
+const log = (txt) => {
+  // eslint-disable-next-line no-console
+  console.log(new Date().toString(), txt);
+};
 
-// app.post('calendar/:id/', (req, res) => {
-//   db.insertOne(req.params.id, year, month, day, timeslot,
-//     () => { res.sendStatus(400); },
-//     (data) => { res.send(data); });
-// });
-
-// app.put('calendar/:id/', (req, res) => {
-//   db.updateOne(req.params.id, year, month, day, timeslot,
-//     () => { res.sendStatus(400); },
-//     (data) => { res.send(data); });
-// });
-
-// app.delete('calendar/:id', (req, res) => {
-//   db.deleteOne(req.params.id,
-//     () => { res.sendStatus(400); },
-//     (data) => { res.send(data); });
-// });
+app.listen(port, () => log(`
+calendar service listening on port ${port}`));
