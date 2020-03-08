@@ -1,4 +1,6 @@
-# AirBnB Experiences Calendar API
+# Experience It Calendar API
+
+Experience It right in your backyard or wherever your next destination is. Whether it's a nightly spin class or your summer vacation, there's an experience waiting for you.
 
 ## API Endpoints
 
@@ -22,8 +24,14 @@ npm server-dev
 ```
 
 ## Related Projects
+1. **Philip Nguyen** [@nguyephi](https://github.com/nguyephi)
+* [Video Player](https://github.com/hrr43fec-luke/video-player-service)
 
-  - https://github.com/hrr43-sdc-luke/Media-Carousel-Service
-  - https://github.com/hrr43-sdc-luke/Photo-Gallery-Service
-  - https://github.com/hrr43-sdc-luke/Calendar-Service
-  - https://github.com/hrr43-sdc-luke/Reviews-Service
+2. **Kraig Hanson** [@kraig5](https://github.com/kraig5)
+* [Chats](https://github.com/hrr43fec-luke/chat-service)
+
+3. **Priscila Gonzalez** [@priscilagonzalez](https://github.com/priscilagonzalez)
+* [Video Carousel](https://github.com/hrr43fec-luke/video-carousel-service)
+
+4. **Andrew Doolittle** [@azdoolittle](https://github.com/azdoolittle)
+* [Recommended Channels](https://github.com/hrr43fec-luke/rec-channels-service)

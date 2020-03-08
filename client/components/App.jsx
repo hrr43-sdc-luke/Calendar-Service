@@ -79,12 +79,19 @@ class App extends Component {
       months: [],
       slide: 0,
     };
+
+    this.getExps = this.getExps.bind(this);
+    this.updateExps = this.updateExps.bind(this);
     this.nextSlide = this.nextSlide.bind(this);
     this.prevSlide = this.prevSlide.bind(this);
   }
 
 
   componentDidMount() {
+    this.getCalendar();
+  }
+
+  getExps() {
     const { expId } = this.props;
     axios.get(`/calendar/${expId}`)
       .then((res) => {
@@ -95,6 +102,10 @@ class App extends Component {
       .catch((err) => {
         console.log('ERROR from axios get request: ', err);
       });
+  }
+
+  updateExps(expId, date) {
+    axios.post(`/calendar/${date}`);
   }
 
   // buttons are visible depending on the state

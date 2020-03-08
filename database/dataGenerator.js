@@ -82,5 +82,3 @@ function runBatches() {
 }
 
 runBatches();
-// 21 seconds per 1M
-// 217 seconds per 10M = 3.6 minutes
